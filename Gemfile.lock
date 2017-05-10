@@ -69,6 +69,10 @@ GEM
       rspec_api_documentation
     arel (8.0.0)
     awesome_print (1.7.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap-generators (3.3.4)
@@ -94,6 +98,7 @@ GEM
     coffee-script-source (1.12.2)
     colorize (0.8.1)
     concurrent-ruby (1.0.5)
+    connection_pool (2.2.1)
     coolline (0.5.0)
       unicode_utils (~> 1.4)
     crack (0.4.3)
@@ -290,6 +295,12 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    react-rails (2.1.0)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
@@ -428,6 +439,7 @@ DEPENDENCIES
   pundit
   rails (~> 5.1.0)
   rails-controller-testing
+  react-rails
   rspec-rails
   rspec_api_documentation
   sass-rails (~> 5.0)
@@ -442,6 +454,9 @@ DEPENDENCIES
   vcr
   web-console (>= 3.3.0)
   webmock
+
+RUBY VERSION
+   ruby 2.4.1p111
 
 BUNDLED WITH
    1.14.6
