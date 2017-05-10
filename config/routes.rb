@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   end
   resources :users, except: [:new, :create]
 
-  get 'welcome/index'
-  root "welcome#index"  
+  get 'home/index'
+  root "home#index"  
 end
