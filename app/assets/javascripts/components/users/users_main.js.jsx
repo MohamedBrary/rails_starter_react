@@ -2,11 +2,11 @@ var UsersMain = React.createClass({
   render: function() {    
     switch (this.props.action){
       case 'show':
-        return <UsersShow user={this.props.user} canDelete={this.props.canDelete} canEdit={this.props.canEdit} ></UsersShow>;        
+        return <UsersShow user={this.props.user} canDelete={this.props.canDelete} canEdit={this.props.canEdit} />;
       case 'edit':
-        return <UsersEdit user={this.props.user} canDelete={this.props.canDelete} ></UsersEdit>;
+        return <UsersEdit user={this.props.user} canDelete={this.props.canDelete} />;
       default:
-        return <UsersIndex users={this.props.users} canCreate={this.props.canCreate} canDelete={this.props.canDelete} canEdit={this.props.canEdit}></UsersIndex>;
+        return <UsersIndex users={this.props.users} params={this.props.params} canCreate={this.props.canCreate} canDelete={this.props.canDelete} canEdit={this.props.canEdit} />;
     }    
   }
 });

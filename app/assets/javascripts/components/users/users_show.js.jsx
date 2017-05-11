@@ -1,9 +1,9 @@
 var UsersShow = React.createClass({
-  propTypes: {
-    user: React.PropTypes.object,
-    canDelete: React.PropTypes.bool,
-    canEdit: React.PropTypes.bool
-  },
+  // propTypes: {
+  //   user: React.PropTypes.object,
+  //   canDelete: React.PropTypes.bool,
+  //   canEdit: React.PropTypes.bool
+  // },
 
   render: function() {
     return (
@@ -22,7 +22,7 @@ var UsersShow = React.createClass({
           <h1>Show User</h1>
         </div>
         <table>
-          <tr>
+          <tbody><tr>
             <td style={{paddingLeft: '150px'}}>
               <img src={this.props.user.image} width="100px"/>
             </td>
@@ -48,7 +48,7 @@ var UsersShow = React.createClass({
                 {this.props.user.role}
               </p>
             </td>
-          </tr>
+          </tr></tbody>
         </table>
 
       </div>
