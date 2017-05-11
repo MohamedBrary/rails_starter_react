@@ -6,15 +6,28 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = policy_scope(User)
+
+    # setting props for React component
+    @props[:can_create] = policy(User).create?
+    @props[:can_edit] = policy(User).update?
+    @props[:can_delete] = policy(User).destroy?
+    @props[:users] = User.to_hash(@users, current_user)
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    # setting props for React component
+    @props[:can_edit] = policy(User).update?
+    @props[:can_delete] = policy(User).destroy?
+    @props[:user] = @user.to_hash(current_user)
   end
 
   # GET /users/1/edit
   def edit
+    # setting props for React component
+    @props[:can_delete] = policy(User).destroy?
+    @props[:user] = @user.to_hash(current_user)
   end
 
   # PATCH/PUT /users/1

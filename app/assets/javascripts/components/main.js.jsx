@@ -23,7 +23,7 @@ var Main = React.createClass({
     var componentToRender;
     switch (this.props.controller){
       case 'users':
-        componentToRender = <UsersMain controller={this.props.controller} actions={this.props.actions} params={this.props.params} ></UsersMain>;
+        componentToRender = <UsersMain action={this.props.action} user={this.props.user} canEdit={this.props.canEdit} users={this.props.users} canCreate={this.props.canCreate} canDelete={this.props.canDelete} ></UsersMain>;
         break;
       default:
         componentToRender = <Home></Home>;

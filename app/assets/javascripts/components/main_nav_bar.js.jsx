@@ -35,9 +35,9 @@ var MainNavBar = React.createClass({
             <ul className="nav navbar-nav navbar-right">              
               {(typeof this.props.currentUser !== 'undefined') && (                
                 <li>
-                  <a href={ '/users/' + this.props.currentUser.id }>
+                  <a href={ this.props.currentUser.showPath }>
                     <img src={this.props.currentUser.image} width="20px"/>
-                    {this.props.currentUser.name}
+                    {' ' +this.props.currentUser.name}
                   </a>
                 </li>                
               )}

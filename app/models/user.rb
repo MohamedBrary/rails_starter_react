@@ -67,21 +67,22 @@ class User < ApplicationRecord
   end
 
   # -- Utils
-  def to_builder
-    Jbuilder.new do |user|
-      user.(self, :name, :email, :role)
-    end
-  end
 
-  def to_hash
+  delegate :url_helpers, to: 'Rails.application.routes'
+  def to_hash(current_user=nil)
     {
       id: id,
       name: name,
       email: email,
-      role: role,
-      image: image
-      # url: user_path(self)
+      role: role.titleize,
+      image: image,
+      show_path: url_helpers.user_path(self),
+      edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self)
     }
+  end
+
+  def self.to_hash(users, current_user=nil)
+    users.map { |u| u.to_hash(current_user) }    
   end
 
 end
