@@ -66,4 +66,22 @@ class User < ApplicationRecord
     @google_oauth2_client
   end
 
+  # -- Utils
+  def to_builder
+    Jbuilder.new do |user|
+      user.(self, :name, :email, :role)
+    end
+  end
+
+  def to_hash
+    {
+      id: id,
+      name: name,
+      email: email,
+      role: role,
+      image: image
+      # url: user_path(self)
+    }
+  end
+
 end

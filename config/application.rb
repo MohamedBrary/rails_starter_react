@@ -27,5 +27,9 @@ module Joggy
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+  	# React  
+	  config.react.camelize_props = true # default false
+	  config.react.addons = true # defaults to false
   end
 end
