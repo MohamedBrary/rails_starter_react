@@ -77,7 +77,8 @@ class User < ApplicationRecord
       role: role.titleize,
       image: image,
       show_path: url_helpers.user_path(self),
-      edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self)
+      edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self),
+      errors: errors.try(:full_messages)
     }
   end
 

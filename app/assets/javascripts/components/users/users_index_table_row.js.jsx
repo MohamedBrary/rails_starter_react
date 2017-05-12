@@ -33,7 +33,7 @@ var UsersIndexTableRow = React.createClass({
         }
         { this.props.canDelete && 
           <td>
-            <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href="/users/1">
+            <a data-confirm="Are you sure?" rel="nofollow" data-method="delete" href={this.props.user.showPath}>
               Destroy
             </a>
           </td>
