@@ -28,7 +28,8 @@ var UsersEdit = React.createClass({
         {this.constructErrorsMessages(this.props.user.errors)}
       </div>
     );
-      
+    
+    // Form is uncontrolled component
     return (
       <div className="container">
         <div className="page-header">
@@ -54,8 +55,9 @@ var UsersEdit = React.createClass({
         </div>
 
         {this.props.user.errors.length != 0 && formErrors}
-
+        
         <form acceptCharset="UTF-8" action={this.props.user.showPath} className="form-horizontal" id={"edit_user_"+this.props.user.id} method="post" role="form">
+            <input name="authenticity_token" type="hidden" value={this.props.authenticityToken}/>
             <input name="utf8" type="hidden" value="✓"/>
             <input name="_method" type="hidden" value="patch"/>
             <div className="form-group">
@@ -63,7 +65,7 @@ var UsersEdit = React.createClass({
                     Name
                 </label>
                 <div className="col-sm-10">
-                    <input className="form-control" id="user_name" name="user[name]" type="text" value={this.props.user.name}>
+                    <input className="form-control" id="user_name" name="user[name]" type="text" defaultValue={this.props.user.name}>
                     </input>
                 </div>
             </div>
@@ -72,7 +74,7 @@ var UsersEdit = React.createClass({
                     Email
                 </label>
                 <div className="col-sm-10">
-                    <input className="form-control" id="user_email" name="user[email]" type="email" value={this.props.user.email}>
+                    <input className="form-control" id="user_email" name="user[email]" type="email" defaultValue={this.props.user.email}>
                     </input>
                 </div>
             </div>
@@ -81,7 +83,7 @@ var UsersEdit = React.createClass({
                     Role
                 </label>
                 <div className="col-sm-10">
-                    <select className="form-control" id="user_role" name="user[role]" value={this.props.user.role.toLowerCase()}>
+                    <select className="form-control" id="user_role" name="user[role]" defaultValue={this.props.user.role.toLowerCase()}>
                         <option value="user">User</option>
                         <option value="manager">Manager</option>
                         <option value="admin">Admin</option>

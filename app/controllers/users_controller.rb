@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     # setting props for React component
     @props[:can_delete] = policy(User).destroy?
     @props[:user] = @user.to_hash(current_user)
+    @props[:authenticity_token] = form_authenticity_token
   end
 
   # PATCH/PUT /users/1
