@@ -70,18 +70,22 @@ class User < ApplicationRecord
 
   delegate :url_helpers, to: 'Rails.application.routes'
   def to_hash(current_user=nil)
-    {
+    h = {
       id: id,
       name: name,
       email: email,
       role: role.titleize,
-      image: image,
+      image: image,      
+      errors: errors.try(:full_messages)      
+    }
+    
+    h.merge!({
       show_path: url_helpers.user_path(self),
       edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self),
-      errors: errors.try(:full_messages),
       facebook: facebook.present?,
       google: google_oauth2.present?
-    }
+    }) if persisted?
+    h
   end
 
   def self.to_hash(users, current_user=nil)

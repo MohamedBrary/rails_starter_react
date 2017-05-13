@@ -16,7 +16,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    - if (controller_name == 'sessions' || controller_name == 'registrations') && action_name == 'new'
+    - if ['registrations', 'passwords'].include?(controller_name) && ['new', 'create'].include?(action_name)
       = yield
     - else
       = react_component('Main', @props)

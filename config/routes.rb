@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   end
   
 
-  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks', registrations: 'registrations'}
+  devise_for :users, :controllers => { 
+    omniauth_callbacks: 'omniauth_callbacks',
+    registrations: 'registrations',
+    sessions: 'sessions',
+    passwords: 'passwords'
+  }
   devise_scope :user do
     get '/users/auth/:provider/upgrade' => 'omniauth_callbacks#upgrade', as: :user_omniauth_upgrade
     get '/users/auth/:provider/setup', :to => 'omniauth_callbacks#setup'
