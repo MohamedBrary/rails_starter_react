@@ -18,8 +18,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     # setting props for React component
-    @props[:can_edit] = policy(User).update?
-    @props[:can_delete] = policy(User).destroy?
+    @props[:can_edit] = policy(@user).update?
+    @props[:can_delete] = policy(@user).destroy?
     @props[:user] = @user.to_hash(current_user)
   end
 

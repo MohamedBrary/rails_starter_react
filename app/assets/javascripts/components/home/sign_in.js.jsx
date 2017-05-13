@@ -24,12 +24,12 @@ var SignIn = React.createClass({
               </div>
               <div className="form-group">
                 <label htmlFor="user_password">Password</label>
-                <input autoComplete="off" className="form-control" type="password" name="user[password]" id="user_password"/>
+                <input autoComplete="off" className="form-control" type="password" name="user[password]" id="user_password" defaultValue={this.props.user.password}/>
               </div>
               <div className="checkbox">
                 <label htmlFor="user_remember_me">
-                  <input name="user[remember_me]" type="hidden" defaultValue={this.props.user.remember_me}/>
-                  <input id="user_remember_me" name="user[remember_me]" type="checkbox" defaultValue={this.props.user.remember_me}/>
+                  <input name="user[remember_me]" type="hidden" defaultValue={this.props.user.rememberMe}/>
+                  <input id="user_remember_me" name="user[remember_me]" type="checkbox" defaultValue={this.props.user.rememberMe}/>
                   Remember Me
                 </label>
               </div>
@@ -38,7 +38,7 @@ var SignIn = React.createClass({
           </div>
         </div>
         <p>
-          <a className="btn btn-default" href="/users/sign_up">Sign up</a>
+          <a className="btn btn-default" href="/users/sign_up">Sign Up</a>
         </p>
         <p>
           <a className="btn btn-default" href="/users/password/new">Forgot your password?</a>

@@ -52,16 +52,16 @@ var ProfileMain = React.createClass({
                 <i>
                   {" leave blank if you don't want to change it"}
                 </i>
-                <input autoComplete="off" className="form-control" type="password" name="user[password]" id="user_password"/>
+                <input autoComplete="off" className="form-control" type="password" name="user[password]" id="user_password" defaultValue={this.props.user.password}/>
               </div>
               <div className="form-group">
                 <label htmlFor="user_password_confirmation">Password Confirmation</label>
-                <input className="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation"/>
+                <input className="form-control" type="password" name="user[password_confirmation]" id="user_password_confirmation" defaultValue={this.props.user.passwordConfirmation}/>
               </div>
               <div className="form-group">
                 <label htmlFor="user_current_password">Current Password</label>
                 <i> we need your current password to confirm your changes </i>
-                <input className="form-control" type="password" name="user[current_password]" id="user_current_password"/>
+                <input className="form-control" type="password" name="user[current_password]" id="user_current_password" defaultValue={this.props.user.currentPassword}/>
               </div>
               <input className="btn btn-primary" data-disable-with="Update" name="commit" type="submit" value="Update"/>
             </form>

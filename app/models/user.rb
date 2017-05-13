@@ -76,14 +76,17 @@ class User < ApplicationRecord
       email: email,
       role: role.titleize,
       image: image,      
-      errors: errors.try(:full_messages)      
+      errors: errors.try(:full_messages),
+      password: password,
+      password_confirmation: password_confirmation
     }
     
     h.merge!({
       show_path: url_helpers.user_path(self),
       edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self),
       facebook: facebook.present?,
-      google: google_oauth2.present?
+      google: google_oauth2.present?,
+      current_password: current_password
     }) if persisted?
     h
   end
