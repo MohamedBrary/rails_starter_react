@@ -33,7 +33,7 @@ var MainNavBar = React.createClass({
               </li>              
             </ul>
             <ul className="nav navbar-nav navbar-right">              
-              {(typeof this.props.currentUser !== 'undefined') && (                
+              { this.props.currentUser && (                
                 <li>
                   <a href={ this.props.currentUser.showPath }>
                     <img src={this.props.currentUser.image} width="20px"/>

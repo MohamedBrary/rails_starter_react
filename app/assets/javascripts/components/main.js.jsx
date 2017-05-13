@@ -25,6 +25,9 @@ var Main = React.createClass({
       case 'users':
         componentToRender = <UsersMain action={this.props.action} user={this.props.user} canEdit={this.props.canEdit} users={this.props.users} canCreate={this.props.canCreate} canDelete={this.props.canDelete} authenticityToken={this.props.authenticityToken}/>;
         break;
+      case 'registrations':
+        componentToRender = <ProfileMain action={this.props.action} user={this.props.user} canDelete={this.props.canDelete} authenticityToken={this.props.authenticityToken}/>;
+        break;
       default:
         componentToRender = <Home/>;
         break;

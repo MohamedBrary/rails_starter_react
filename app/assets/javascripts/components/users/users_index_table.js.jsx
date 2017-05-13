@@ -7,10 +7,12 @@ var UsersIndexTable = React.createClass({
   // },
 
   render: function() {
-    var userItems = this.props.users.map((user) =>
-      <UsersIndexTableRow key={"user_id_"+user.id} user={user} 
-                canDelete={this.props.canDelete} canEdit={this.props.canEdit} />
-    );
+    var _this = this;
+    var userItems = this.props.users.map(function(user){
+      return <UsersIndexTableRow key={"user_id_"+user.id} user={user} 
+        canDelete={_this.props.canDelete} canEdit={_this.props.canEdit} />;
+    });
+    
     return (
       <div className="table-responsive">
         <table className="table table-striped table-bordered table-hover">

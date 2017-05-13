@@ -17,6 +17,10 @@ class ApplicationController < ActionController::Base
 
   # for React components
   def set_props
-    @props = {controller: controller_name, action: action_name, flash: flash, current_user: current_user.to_hash}
+    @props = {
+      controller: controller_name,
+      action: action_name,
+      flash: flash,
+      current_user: current_user.try(:to_hash)}
   end
 end

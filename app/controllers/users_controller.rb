@@ -26,9 +26,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     # setting props for React component
-    @props[:can_delete] = policy(User).destroy?
-    @props[:user] = @user.to_hash(current_user)
-    @props[:authenticity_token] = form_authenticity_token
+    update_props
   end
 
   # PATCH/PUT /users/1
@@ -40,6 +38,9 @@ class UsersController < ApplicationController
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        # setting props for React component
+        update_props
+
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -72,5 +73,12 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(policy(@user || User).permitted_attributes)
       # params.require(:user).permit(:name, :email, :password, :password_confirmation, :role)
+    end
+
+    def update_props
+      # setting props for React component
+      @props[:can_delete] = policy(@user).destroy?
+      @props[:user] = @user.to_hash(current_user)
+      @props[:authenticity_token] = form_authenticity_token
     end
 end

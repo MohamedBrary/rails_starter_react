@@ -4,31 +4,7 @@ var UsersEdit = React.createClass({
     canDelete: React.PropTypes.bool
   },
 
-  constructErrorsMessages: function(errors) {
-    return (
-      <ul>
-      {errors.map(function(error) {<li>{error}</li>})}
-      </ul>
-    );
-  },
-
   render: function() {
-    var formErrors = (
-      <div className="alert alert-danger alert-dismissable" role="alert">
-        <button className="close" data-dismiss='alert' type="button">
-          <span aria-hidden="true">&times;</span>
-          <span className="sr-only">Close</span>
-        </button>
-        <h4>
-          {
-            this.props.user.errors.length +
-            " error(s) prohibited this user from being saved:"
-          }
-        </h4>
-        {this.constructErrorsMessages(this.props.user.errors)}
-      </div>
-    );
-    
     // Form is uncontrolled component
     return (
       <div className="container">
@@ -54,7 +30,7 @@ var UsersEdit = React.createClass({
             </h1>
         </div>
 
-        {this.props.user.errors.length != 0 && formErrors}
+        <FormErrors errors={this.props.user.errors} />
         
         <form acceptCharset="UTF-8" action={this.props.user.showPath} className="form-horizontal" id={"edit_user_"+this.props.user.id} method="post" role="form">
             <input name="authenticity_token" type="hidden" value={this.props.authenticityToken}/>
@@ -92,8 +68,7 @@ var UsersEdit = React.createClass({
             </div>
             <div className="form-group">
                 <div className="col-sm-offset-2 col-sm-10">
-                    <input className="btn btn-primary" data-disable-with="Update User" name="commit" type="submit" value="Update User">
-                    </input>
+                    <input className="btn btn-primary" data-disable-with="Update User" name="commit" type="submit" value="Update User"/>
                 </div>
             </div>
         </form>

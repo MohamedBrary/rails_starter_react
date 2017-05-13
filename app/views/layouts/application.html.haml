@@ -6,7 +6,7 @@
     %meta{content: "width=device-width, initial-scale=1", name: "viewport"}
     %meta{content: "", name: "description"}
     %meta{content: "", name: "author"}
-    %title Starter Template for Bootstrap
+    %title Starter Rails 5 with React
 
     / HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries
     /[if lt IE 9]
@@ -16,4 +16,7 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = react_component('Main', @props)
+    - if (controller_name == 'sessions' || controller_name == 'registrations') && action_name == 'new'
+      = yield
+    - else
+      = react_component('Main', @props)

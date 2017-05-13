@@ -27,8 +27,9 @@
 
 - if devise_mapping.omniauthable?
   %hr
-  .panel.primary 
-    Connect your accounts
+  .panel.panel-default.devise-bs
+    .panel-heading
+      %h4 Connect With Social Networks
     .panel-body
       - resource_class.omniauth_providers.each do |provider|
         - if resource.identities.where( :provider => provider ).first

@@ -17,11 +17,30 @@ class RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def edit
+    update_props resource
+    super
+  end
+
+  def update
+    # call update_props after the actual updating and before rendering
+    super do |resource|
+      update_props resource
+    end
+  end
+
   protected
 
   # adding the 'name' attribute to devise params
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
     devise_parameter_sanitizer.permit(:account_update, keys: [:name])
+  end
+
+  def update_props resource
+    # setting props for React component
+    @props[:can_delete] = policy(resource).destroy?
+    @props[:user] = resource.to_hash(current_user)
+    @props[:authenticity_token] = form_authenticity_token
   end
 end

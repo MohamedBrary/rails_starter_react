@@ -78,7 +78,9 @@ class User < ApplicationRecord
       image: image,
       show_path: url_helpers.user_path(self),
       edit_path: current_user == self ? url_helpers.edit_user_registration_path(self) : url_helpers.edit_user_path(self),
-      errors: errors.try(:full_messages)
+      errors: errors.try(:full_messages),
+      facebook: facebook.present?,
+      google: google_oauth2.present?
     }
   end
 
