@@ -1,6 +1,6 @@
-## Rails 5 Starter Application
+## Rails 5 React Starter Application
 
-This is a Rails 5 starter application to boost your MVP development.
+This is a Rails 5 starter application with React to boost your MVP development.
 
 #### What is featured till now:
 
@@ -10,6 +10,7 @@ This is a Rails 5 starter application to boost your MVP development.
 * Pundit for authorization, and different roles for users
 * API with token authentication
 * Rspec and Capybara for automated testing, and test coverage for all implemented features
+* React as a frontend library
 
 #### Take a look:
 
@@ -21,4 +22,4 @@ _To see the steps used creating this app, checkout out this [gist](https://gist.
 
 ***
 
-For the same features but integerating **React** in the front end, checkout out this [repository](https://github.com/MohamedBrary/rails_starter_react).
+For the same features but **without** integerating **React** in the front end, checkout out this [repository](https://github.com/MohamedBrary/rails_starter).
